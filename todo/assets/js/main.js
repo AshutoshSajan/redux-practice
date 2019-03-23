@@ -42,13 +42,7 @@ const store = Redux.createStore(reducer);
 function reducer(state = [], action){
 	switch (action.type) {
 		case "add":
-			return [
-				...state,
-				{
-					todo: inputVal,
-					status: false
-				}
-			]
+			return [...state].concat({todo: inputVal, status: false});
 			break;
 		case "remove":
 			return [...state].filter((v,i) => !(i == id));
